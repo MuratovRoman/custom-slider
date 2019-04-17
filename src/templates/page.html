@@ -1,0 +1,66 @@
+---
+title: Index page
+---
+{% extends "layouts/_layout.html" %}
+
+{% block content %}
+	
+	<div class="slider-block">
+		<div class="slider-block__bg"></div>
+		<div class="slider js-slider">
+			<ul class="slider__list">
+				{% for item in [
+					'elephant',
+					'box',
+					'pallet',
+					'cell'
+				] %}
+					<li class="slider__icon js-icon">
+						{{ mixins.icon(item) }}
+					</li>
+				{% endfor %}
+			</ul>
+			<div class="slider__arrows">
+				<button type="button" class="slider__arrow-prev js-prev-arrow">
+					{{ mixins.icon('prev') }}
+				</button>
+				<button type="button" class="slider__arrow-next js-next-arrow">
+					{{ mixins.icon('next') }}
+				</button>
+			</div>
+			<div class="slider__wrap js-slider-wrap">
+				{% for slide in [
+					{
+						img: 'elephant',
+						title: 'Негабаритные',
+						text: 'Наш склад может принимать и хранить негабаритные грузы.'
+					},
+					{
+						img: 'box',
+						title: 'Коробка',
+						text: 'В коробке может находиться до 30 ассортиментных позиций.'
+					},
+					{
+						img: 'pallet',
+						title: 'Паллета',
+						text: 'Склад рассчитан на европаллеты, но мы можем адаптировать стеллажи под Ваш формат.'
+					},
+					{
+						img: 'rock',
+						title: 'Ячейка',
+						text: 'В ячейке стеллажа можно разместить товар размером ХХ.'
+					}
+				] %}
+					<div class="slider__slide slide js-slide">
+						<div class="slide__img"><img src="./img/{{ slide.img }}.png" alt="{{ slide.img }}"></div>
+						<div class="slide__info">
+							<div class="slide__title">{{ slide.title }}</div>
+							<div class="slide__text">{{ slide.text }}</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

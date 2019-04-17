@@ -1,0 +1,18 @@
+//FONTS
+=fontpath($name, $name1, $file)
+	src: local($name), local($name1), url("../fonts/" + $file + ".woff2") format("woff2"), url("../fonts/" + $file + ".woff") format("woff")
+=fontdefault($style, $weight, $name)
+	font-family: $name
+	font-style: $style
+	font-weight: $weight
+
+$helveticaNeue: 'HelveticaNeue'
+
+// HelveticaNeue-Regular
+@font-face
+	+fontdefault(normal, 400, $helveticaNeue)
+	+fontpath('HelveticaNeue-Regular', 'HelveticaNeue-Regular', HelveticaNeueCyr-Roman)
+// HelveticaNeue-Bold
+@font-face
+	+fontdefault(normal, 700, $helveticaNeue)
+	+fontpath('HelveticaNeue-Bold', 'HelveticaNeue-Bold', HelveticaNeueCyr-Bold)
